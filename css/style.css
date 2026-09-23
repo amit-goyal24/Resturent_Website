@@ -1,0 +1,683 @@
+/* ==========================================================================
+   RESET & GLOBAL STYLES
+   ========================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FAF8F3;
+    color: #252525;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    color: #40513B;
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: #40513B;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #B47A3C;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #40513B;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #2d3a29;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #40513B;
+    border: 1px solid #40513B;
+}
+
+.btn-secondary:hover {
+    background-color: #f1ebd9;
+    color: #40513B;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.site-header {
+    background-color: #FAF8F3;
+    border-bottom: 1px solid #E5E0D6;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #40513B;
+}
+
+.logo:hover {
+    color: #40513B;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list a {
+    font-size: 1rem;
+}
+
+.nav-list a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #B47A3C;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #40513B;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #4a4a4a;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   SEASONAL OFFER
+   ========================================================================== */
+.seasonal-offer {
+    background-color: #E5E0D6;
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 40px;
+}
+
+.seasonal-offer h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.seasonal-offer p {
+    margin-bottom: 0;
+    color: #4a4a4a;
+}
+
+/* ==========================================================================
+   POPULAR DISHES (HOME)
+   ========================================================================== */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.dish-card {
+    background: #ffffff;
+    border: 1px solid #E5E0D6;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.dish-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #E5E0D6;
+}
+
+.dish-info {
+    padding: 20px;
+}
+
+.dish-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.dish-info .price {
+    display: block;
+    font-weight: bold;
+    color: #B47A3C;
+    margin-bottom: 10px;
+}
+
+.dish-info p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ==========================================================================
+   ABOUT PREVIEW (HOME)
+   ========================================================================== */
+.about-preview-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-preview-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.about-preview-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+/* ==========================================================================
+   FEATURED REVIEW (HOME)
+   ========================================================================== */
+.review-section {
+    background-color: #E5E0D6;
+    border-radius: 6px;
+    padding: 60px 20px;
+}
+
+.review-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.review-text {
+    font-size: 1.4rem;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #252525;
+    margin-bottom: 15px;
+}
+
+.review-stars {
+    color: #B47A3C;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #40513B;
+}
+
+/* ==========================================================================
+   RESERVATION CTA & LOCATION (HOME)
+   ========================================================================== */
+.reservation-cta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #ffffff;
+    border: 1px solid #E5E0D6;
+    border-radius: 6px;
+    padding: 40px;
+}
+
+.cta-box h3, .location-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.cta-box p, .location-box p {
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+/* ==========================================================================
+   MENU PAGE
+   ========================================================================== */
+.menu-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.menu-nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #E5E0D6;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #252525;
+}
+
+.menu-nav a:hover {
+    background-color: #E5E0D6;
+}
+
+.menu-category-section {
+    margin-bottom: 60px;
+}
+
+.menu-category-title {
+    border-bottom: 1px solid #E5E0D6;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.menu-item {
+    display: flex;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #E5E0D6;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.menu-item-info {
+    flex-grow: 1;
+}
+
+.menu-item-header {
+    margin-bottom: 5px;
+}
+
+.menu-item-header h4 {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.menu-item-rating {
+    color: #B47A3C;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.menu-item-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.menu-item-price {
+    font-weight: bold;
+    color: #40513B;
+}
+
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+.about-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.about-story p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #4a4a4a;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+}
+
+.gallery-item {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 0; /* Let container handle radius */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* ==========================================================================
+   RESERVATION & CONTACT PAGES
+   ========================================================================== */
+.form-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.side-info {
+    background-color: #E5E0D6;
+    padding: 30px;
+    border-radius: 6px;
+}
+
+.side-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.side-info h3:first-child {
+    margin-top: 0;
+}
+
+.side-info p {
+    color: #4a4a4a;
+}
+
+/* Forms */
+.form-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 6px;
+    border: 1px solid #E5E0D6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #E5E0D6;
+    padding: 60px 0 20px;
+    margin-top: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #555;
+}
+
+.footer-links a:hover {
+    color: #B47A3C;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #E5E0D6;
+    padding-top: 20px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablet (max-width: 900px) */
+@media screen and (max-width: 900px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    .gallery-large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .header-inner {
+        flex-wrap: wrap;
+    }
+    
+    .main-nav {
+        flex-basis: 100%;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 15px;
+    }
+    
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Using CSS trick to hide nav list on mobile and just show hamburger for UI */
+    /* Since JS is disabled, we'll just stack the nav normally on mobile as per standard simple sites without checkbox hacks if possible, or just let it wrap */
+    
+    .hero-inner,
+    .about-preview-inner,
+    .reservation-cta-inner,
+    .about-story,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reservation-cta-inner {
+        padding: 20px;
+    }
+}
