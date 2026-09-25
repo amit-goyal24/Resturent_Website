@@ -106,5 +106,74 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.form-grid');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                try {
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    const response = await fetch('http://localhost:5000/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+                    
+                    const result = await response.json();
+                    
+                    let messageEl = document.getElementById('form-message');
+                    if (!messageEl) {
+                        messageEl = document.createElement('div');
+                        messageEl.id = 'form-message';
+                        messageEl.style.marginTop = '15px';
+                        messageEl.style.padding = '10px';
+                        messageEl.style.borderRadius = '5px';
+                        messageEl.style.textAlign = 'center';
+                        form.appendChild(messageEl);
+                    }
+                    
+                    if (response.ok) {
+                        messageEl.style.backgroundColor = '#d4edda';
+                        messageEl.style.color = '#155724';
+                        messageEl.textContent = result.message || 'Your message has been sent successfully.';
+                        form.reset();
+                    } else {
+                        messageEl.style.backgroundColor = '#f8d7da';
+                        messageEl.style.color = '#721c24';
+                        messageEl.textContent = result.message || 'Error sending message.';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    let messageEl = document.getElementById('form-message');
+                    if (!messageEl) {
+                        messageEl = document.createElement('div');
+                        messageEl.id = 'form-message';
+                        messageEl.style.marginTop = '15px';
+                        messageEl.style.padding = '10px';
+                        messageEl.style.borderRadius = '5px';
+                        messageEl.style.textAlign = 'center';
+                        form.appendChild(messageEl);
+                    }
+                    messageEl.style.backgroundColor = '#f8d7da';
+                    messageEl.style.color = '#721c24';
+                    messageEl.textContent = 'An error occurred. Please try again.';
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
